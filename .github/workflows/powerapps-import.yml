@@ -12,15 +12,13 @@ jobs:
   import-to-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Install Power Platform CLI via .NET CLI
+      - name: Install Power Platform CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
-          pac solution --help   # verify pac is installed
-        shell: bash
+          pac solution --help
 
       - name: Authenticate with Service Principal
         run: |
@@ -30,7 +28,6 @@ jobs:
                           --clientSecret ${{ secrets.POWERPLATFORM_CLIENT_SECRET }} \
                           --tenant ${{ secrets.POWERPLATFORM_TENANT_ID }} \
                           --url ${{ secrets.TEST_ENV_URL }}
-        shell: bash
 
       - name: Import Solution to Test
         run: |
@@ -38,22 +35,19 @@ jobs:
           pac solution import --path solutions/EmpLeave.zip \
                               --overwrite-unmanaged-customizations \
                               --publish-changes \
-                              --environment ${{ secrets.TEST_ENV_URL }}
-        shell: bash
+                              --name TestSP
 
   import-to-prod:
     runs-on: ubuntu-latest
     needs: import-to-test
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Install Power Platform CLI via .NET CLI
+      - name: Install Power Platform CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
           pac solution --help
-        shell: bash
 
       - name: Authenticate with Service Principal
         run: |
@@ -63,7 +57,6 @@ jobs:
                           --clientSecret ${{ secrets.POWERPLATFORM_CLIENT_SECRET }} \
                           --tenant ${{ secrets.POWERPLATFORM_TENANT_ID }} \
                           --url ${{ secrets.PROD_ENV_URL }}
-        shell: bash
 
       - name: Import Solution to Prod
         run: |
@@ -71,5 +64,4 @@ jobs:
           pac solution import --path solutions/EmpLeave.zip \
                               --overwrite-unmanaged-customizations \
                               --publish-changes \
-                              --environment ${{ secrets.PROD_ENV_URL }}
-        shell: bash
+                              --name ProdSP
