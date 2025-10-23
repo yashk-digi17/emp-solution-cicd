@@ -10,17 +10,19 @@ on:
 
 jobs:
   import-to-test:
+    name: Import to Test Environment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Install Power Platform CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
-          pac solution --help
+          pac --version
 
-      - name: Authenticate with Service Principal
+      - name: Authenticate Service Principal (Test)
         run: |
           export PATH="$PATH:$HOME/.dotnet/tools"
           pac auth create --name TestSP \
@@ -38,18 +40,20 @@ jobs:
                               --name TestSP
 
   import-to-prod:
+    name: Import to Production Environment
     runs-on: ubuntu-latest
     needs: import-to-test
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Install Power Platform CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
-          pac solution --help
+          pac --version
 
-      - name: Authenticate with Service Principal
+      - name: Authenticate Service Principal (Prod)
         run: |
           export PATH="$PATH:$HOME/.dotnet/tools"
           pac auth create --name ProdSP \
