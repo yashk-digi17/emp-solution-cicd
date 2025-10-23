@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f54d1bb8-8c28-4e10-8dee-bd14dc83b9f7}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{10504e9b-493e-4220-8d20-83b49bdbfe72}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{bc33b87d-0612-4f13-a55f-8a8184868159}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f626421f-d999-4bec-af0c-b44f3d723af5}">
+                        <labels>
+                          <label description="EmployeeName" languagecode="1033" />
+                        </labels>
+                        <control id="cr6c4_employeename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cr6c4_employeename" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{704c9e91-f0a5-40a1-a064-29aad898c373}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2d1458e8-0fbf-493e-9fc3-8f1b12dff796}">
+                        <labels>
+                          <label description="StartDate" languagecode="1033" />
+                        </labels>
+                        <control id="cr6c4_leavestartdate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="cr6c4_leavestartdate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{08fcd19c-b54b-49fa-a82d-b8c786d1a198}">
+                        <labels>
+                          <label description="EndDate" languagecode="1033" />
+                        </labels>
+                        <control id="cr6c4_leaveenddate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="cr6c4_leaveenddate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2fdbecac-115e-4908-8f52-83f01afca1a9}">
+                        <labels>
+                          <label description="Reason" languagecode="1033" />
+                        </labels>
+                        <control id="cr6c4_leavereason" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="cr6c4_leavereason" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e5885465-c525-464f-a071-560746389f30}">
+                        <labels>
+                          <label description="Status1" languagecode="1033" />
+                        </labels>
+                        <control id="cr6c4_leavestatus" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="cr6c4_leavestatus" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

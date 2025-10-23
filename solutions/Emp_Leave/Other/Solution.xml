@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.25095.150" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25095.150" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25095.00150">
+  <SolutionManifest>
+    <UniqueName>EmpLeave</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Emp_Leave" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.9</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>first</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="first" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>first</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>42672</CustomizationOptionValuePrefix>
+      <Addresses />
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="cr6c4_leaverequest1" behavior="0" />
+      <RootComponent type="29" id="{ea8ab288-58fa-b5d2-2508-44cb8c4781fc}" behavior="0" />
+      <RootComponent type="300" schemaName="first_empleavesapp_5db55" behavior="0" />
+    </RootComponents>
+    <MissingDependencies />
+  </SolutionManifest>
+</ImportExportXml>

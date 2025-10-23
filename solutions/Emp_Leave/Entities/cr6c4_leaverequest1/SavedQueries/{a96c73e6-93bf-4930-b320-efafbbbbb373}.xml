@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a96c73e6-93bf-4930-b320-efafbbbbb373}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cr6c4_employeename" select="1" icon="1" preview="1">
+        <row name="result" id="cr6c4_leaverequest1id">
+          <cell name="cr6c4_employeename" width="300" />
+          <cell name="cr6c4_leavestartdate" width="150" />
+          <cell name="cr6c4_leaveenddate" width="150" />
+          <cell name="cr6c4_leavereason" width="150" />
+          <cell name="cr6c4_leavestatus" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cr6c4_leaverequest1">
+          <attribute name="cr6c4_leaverequest1id" />
+          <attribute name="cr6c4_employeename" />
+          <attribute name="createdon" />
+          <order attribute="cr6c4_employeename" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cr6c4_leavestartdate" />
+          <attribute name="cr6c4_leaveenddate" />
+          <attribute name="cr6c4_leavereason" />
+          <attribute name="cr6c4_leavestatus" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Leave Request" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

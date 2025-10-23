@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_cr6c4_leaverequest1" />
+  <EntityRelationship Name="lk_cr6c4_leaverequest1_createdby" />
+  <EntityRelationship Name="lk_cr6c4_leaverequest1_modifiedby" />
+  <EntityRelationship Name="owner_cr6c4_leaverequest1" />
+  <EntityRelationship Name="team_cr6c4_leaverequest1" />
+  <EntityRelationship Name="user_cr6c4_leaverequest1" />
+</EntityRelationships>

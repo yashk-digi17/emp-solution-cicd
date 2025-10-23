@@ -1,0 +1,64 @@
+name: Power Apps Solution Import
+
+on:
+  push:
+    paths:
+      - "solutions/*.zip"
+    branches:
+      - main
+
+workflow_dispatch:   # 👈 This makes it appear in Actions tab manually
+    
+
+jobs:
+  import-to-test:
+    name: Import to Test Environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+
+      - name: Authenticate to Test
+        uses: microsoft/powerplatform-actions/authenticate@v1
+        with:
+          app-id: ${{ secrets.POWERPLATFORM_APP_ID }}
+          client-secret: ${{ secrets.POWERPLATFORM_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.POWERPLATFORM_TENANT_ID }}
+          environment-url: ${{ secrets.TEST_ENV_URL }}
+
+      - name: Import Solution to Test
+        uses: microsoft/powerplatform-actions/import-solution@v1
+        with:
+          solution-input-file: solutions/Emp_Leave.zip
+          overwrite-unmanaged-customizations: true
+          publish-changes: true
+
+  import-to-prod:
+    name: Import to Prod Environment
+    runs-on: ubuntu-latest
+    needs: import-to-test
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v1
+
+      - name: Authenticate to Prod
+        uses: microsoft/powerplatform-actions/authenticate@v1
+        with:
+          app-id: ${{ secrets.POWERPLATFORM_APP_ID }}
+          client-secret: ${{ secrets.POWERPLATFORM_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.POWERPLATFORM_TENANT_ID }}
+          environment-url: ${{ secrets.PROD_ENV_URL }}
+
+      - name: Import Solution to Prod
+        uses: microsoft/powerplatform-actions/import-solution@v1
+        with:
+          solution-input-file: solutions/Emp_Leave.zip
+          overwrite-unmanaged-customizations: true
+          publish-changes: true
