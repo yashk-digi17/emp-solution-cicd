@@ -18,23 +18,28 @@ jobs:
       - name: Install Power Platform CLI via .NET CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
-          pac --version
+          export PATH="$PATH:$HOME/.dotnet/tools"
+          pac solution --help   # verify pac is installed
         shell: bash
 
       - name: Authenticate with Service Principal
         run: |
+          export PATH="$PATH:$HOME/.dotnet/tools"
           pac auth create --name TestSP \
                           --applicationId ${{ secrets.POWERPLATFORM_APP_ID }} \
                           --clientSecret ${{ secrets.POWERPLATFORM_CLIENT_SECRET }} \
                           --tenant ${{ secrets.POWERPLATFORM_TENANT_ID }} \
                           --url ${{ secrets.TEST_ENV_URL }}
+        shell: bash
 
       - name: Import Solution to Test
         run: |
+          export PATH="$PATH:$HOME/.dotnet/tools"
           pac solution import --path solutions/EmpLeave.zip \
                               --overwrite-unmanaged-customizations \
                               --publish-changes \
                               --environment ${{ secrets.TEST_ENV_URL }}
+        shell: bash
 
   import-to-prod:
     runs-on: ubuntu-latest
@@ -46,20 +51,25 @@ jobs:
       - name: Install Power Platform CLI via .NET CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
-          pac --version
+          export PATH="$PATH:$HOME/.dotnet/tools"
+          pac solution --help
         shell: bash
 
       - name: Authenticate with Service Principal
         run: |
+          export PATH="$PATH:$HOME/.dotnet/tools"
           pac auth create --name ProdSP \
                           --applicationId ${{ secrets.POWERPLATFORM_APP_ID }} \
                           --clientSecret ${{ secrets.POWERPLATFORM_CLIENT_SECRET }} \
                           --tenant ${{ secrets.POWERPLATFORM_TENANT_ID }} \
                           --url ${{ secrets.PROD_ENV_URL }}
+        shell: bash
 
       - name: Import Solution to Prod
         run: |
+          export PATH="$PATH:$HOME/.dotnet/tools"
           pac solution import --path solutions/EmpLeave.zip \
                               --overwrite-unmanaged-customizations \
                               --publish-changes \
                               --environment ${{ secrets.PROD_ENV_URL }}
+        shell: bash
