@@ -16,11 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Power Platform CLI
+      - name: Install PAC CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
-          pac --version
+          pac version
 
       - name: Authenticate Service Principal (Test)
         run: |
@@ -47,11 +47,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Power Platform CLI
+      - name: Install PAC CLI
         run: |
           dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
           export PATH="$PATH:$HOME/.dotnet/tools"
-          pac --version
+          pac version
 
       - name: Authenticate Service Principal (Prod)
         run: |
