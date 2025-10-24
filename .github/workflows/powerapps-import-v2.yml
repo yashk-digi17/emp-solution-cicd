@@ -27,7 +27,7 @@ jobs:
 
       - name: Authenticate Service Principal (Test)
         run: |
-          pac auth create --name TestSP \
+          pac auth create --name Yash Test \
             --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
             --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
             --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
@@ -57,7 +57,7 @@ jobs:
 
       - name: Authenticate Service Principal (Prod)
         run: |
-          pac auth create --name ProdSP \
+          pac auth create --name Yash Prod \
             --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
             --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
             --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
