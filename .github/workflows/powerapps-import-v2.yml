@@ -19,12 +19,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Install PAC CLI
         run: |
-          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
-          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-          pac --version
+         dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
+         echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+         echo "PAC Installed Successfully"
+         pac help
+
 
       - name: Authenticate Service Principal (Test)
         run: |
