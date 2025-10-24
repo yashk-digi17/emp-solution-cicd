@@ -19,7 +19,7 @@ jobs:
       - name: Install Power Platform CLI
         run: |
          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
-         export PATH="$PATH:$HOME/.dotnet/tools"
+         echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
          pac --version
 
       - name: Authenticate Service Principal (Test)
