@@ -1,0 +1,71 @@
+name: Power Apps Solution Import (SPN)
+
+on:
+  push:
+    paths:
+      - "solutions/EmpLeave.zip"
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  SOLUTION_FILE: "solutions/EmpLeave_managed.zip"
+
+jobs:
+  import-to-test:
+    name: Import to Test Environment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install PAC CLI
+        run: |
+          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Authenticate Service Principal (Test)
+        run: |
+          pac auth create --name YashTest \
+            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+            --url "${{ secrets.TEST_ENV_URL }}"
+
+      - name: Import Solution to Test
+        run: |
+          pac solution import \
+            --path "$SOLUTION_FILE" \
+            --force-overwrite \
+            --publish-changes
+
+
+  import-to-prod:
+    name: Import to Production Environment
+    runs-on: ubuntu-latest
+    needs: import-to-test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install PAC CLI
+        run: |
+          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.29.11
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Authenticate Service Principal (Prod)
+        run: |
+          pac auth create --name YashProd \
+            --applicationId "${{ secrets.POWERPLATFORM_APP_ID }}" \
+            --clientSecret "${{ secrets.POWERPLATFORM_CLIENT_SECRET }}" \
+            --tenant "${{ secrets.POWERPLATFORM_TENANT_ID }}" \
+            --url "${{ secrets.PROD_ENV_URL }}"
+
+      - name: Import Solution to Prod
+        run: |
+          pac solution import \
+            --path "$SOLUTION_FILE" \
+            --force-overwrite \
+            --publish-changes
