@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  SOLUTION_FILE: "solutions/EmpLeave.zip"
+  SOLUTION_FILE: "solutions/EmpLeave_managed.zip"
 
 jobs:
   import-to-test:
