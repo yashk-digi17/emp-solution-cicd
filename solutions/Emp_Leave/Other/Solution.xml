@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25101.143" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25101.143" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25102.00140">
+<ImportExportXml version="9.2.25102.147" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25102.147" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25102.00147">
   <SolutionManifest>
     <UniqueName>EmpLeave</UniqueName>
     <LocalizedNames>
@@ -22,6 +22,7 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="cr6c4_leaverequest1" behavior="0" />
+      <RootComponent type="29" id="{ea8ab288-58fa-b5d2-2508-44cb8c4781fc}" behavior="0" />
       <RootComponent type="300" schemaName="first_empleavesapp_5db55" behavior="0" />
     </RootComponents>
     <MissingDependencies>
