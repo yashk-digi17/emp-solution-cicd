@@ -22,7 +22,6 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="cr6c4_leaverequest1" behavior="0" />
-      <RootComponent type="29" id="{ea8ab288-58fa-b5d2-2508-44cb8c4781fc}" behavior="0" />
       <RootComponent type="300" schemaName="first_empleavesapp_5db55" behavior="0" />
     </RootComponents>
     <MissingDependencies>
