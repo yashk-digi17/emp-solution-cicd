@@ -1,0 +1,84 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_gmail": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "first_sharedgmail_8c01c"
+        },
+        "api": {
+          "name": "shared_gmail"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "first_sharedcommondataserviceforapps_a4722"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "c3e8e58c-2299-488a-98ea-21300eeeb053"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "cr6c4_leaverequest1",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Send_email_(V2)": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "89b06be3-3800-491e-bc89-c6eff5cfdef9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_gmail",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_gmail"
+            },
+            "parameters": {
+              "emailMessage/To": "@triggerOutputs()?['body/cr6c4_manageremail']",
+              "emailMessage/Subject": "test sub",
+              "emailMessage/Body": "<p class=\"editor-paragraph\">A new leave request has been submitted New.</p><br><p class=\"editor-paragraph\">Employee: @{triggerOutputs()?['body/cr6c4_employeename']}<br>Email: @{triggerOutputs()?['body/cr6c4_EmployeeEmail']}<br>Start Date: @{triggerOutputs()?['body/cr6c4_leavestartdate']}<br>End Date: @{triggerOutputs()?['body/cr6c4_leaveenddate']}<br>Reason: @{triggerOutputs()?['body/cr6c4_leavereason']}<br>Status: @{triggerOutputs()?['body/cr6c4_leavestatus']}</p><br>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
