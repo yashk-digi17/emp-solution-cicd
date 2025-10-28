@@ -22,10 +22,15 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="cr6c4_leaverequest1" behavior="0" />
+      <RootComponent type="1" schemaName="email" behavior="2" />
       <RootComponent type="29" id="{ea8ab288-58fa-b5d2-2508-44cb8c4781fc}" behavior="0" />
       <RootComponent type="300" schemaName="first_empleavesapp_5db55" behavior="0" />
     </RootComponents>
     <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="email" displayName="Email" parentSchemaName="" solution="EmailDescriptionBlobStore_XRM (1.8)" />
+        <Dependent type="1" schemaName="email" displayName="Email" />
+      </MissingDependency>
       <MissingDependency>
         <Required type="AICopilot" displayName="msft_Microsoft365Copilot" solution="msft_AIPlatformExtensionsCoreData (1.0.0.8)" id.name="msft_Microsoft365Copilot">
           <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
