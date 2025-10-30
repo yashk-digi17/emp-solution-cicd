@@ -24,13 +24,6 @@
       <RootComponent type="1" schemaName="cr6c4_leaverequest1" behavior="0" />
       <RootComponent type="300" schemaName="first_empleavesapp_5db55" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="AICopilot" displayName="msft_Microsoft365Copilot" solution="msft_AIPlatformExtensionsCoreData (1.0.0.8)" id.name="msft_Microsoft365Copilot">
-          <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
-        </Required>
-        <Dependent type="AICopilot" displayName="msft_Microsoft365Copilot" id.name="msft_Microsoft365Copilot" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>

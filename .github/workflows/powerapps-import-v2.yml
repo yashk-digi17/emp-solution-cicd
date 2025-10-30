@@ -1,8 +1,9 @@
 name: Power Apps Solution Import (SPN)
+
 on:
   push:
     paths:
-      - "solutions/EmpLeave_managed.zip"
+      - "solutions/EmpLeave.zip"
     branches:
       - main
   workflow_dispatch:
@@ -38,6 +39,7 @@ jobs:
             --path "$SOLUTION_FILE" \
             --force-overwrite \
             --publish-changes
+
 
   import-to-prod:
     name: Import to Production Environment
