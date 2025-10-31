@@ -1,15 +1,6 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_gmail": {
-        "runtimeSource": "embedded",
-        "connection": {
-          "connectionReferenceLogicalName": "first_sharedgmail_8c01c"
-        },
-        "api": {
-          "name": "shared_gmail"
-        }
-      },
       "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
         "connection": {
@@ -17,6 +8,15 @@
         },
         "api": {
           "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_gmail": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "first_sharedgmail_8c01c"
+        },
+        "api": {
+          "name": "shared_gmail"
         }
       }
     },
@@ -36,7 +36,7 @@
       "triggers": {
         "When_a_row_is_added,_modified_or_deleted": {
           "metadata": {
-            "operationMetadataId": "c3e8e58c-2299-488a-98ea-21300eeeb053"
+            "operationMetadataId": "7cc30f5d-b1a3-42fc-b8e4-00b2eadf5f1b"
           },
           "type": "OpenApiConnectionWebhook",
           "inputs": {
@@ -58,7 +58,7 @@
         "Send_email_(V2)": {
           "runAfter": {},
           "metadata": {
-            "operationMetadataId": "89b06be3-3800-491e-bc89-c6eff5cfdef9"
+            "operationMetadataId": "46b25471-6281-4122-8770-a04d97522659"
           },
           "type": "OpenApiConnection",
           "inputs": {
@@ -68,17 +68,16 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_gmail"
             },
             "parameters": {
-              "emailMessage/To": "@triggerOutputs()?['body/cr6c4_manageremail']",
-              "emailMessage/Subject": "test sub",
-              "emailMessage/Body": "<p class=\"editor-paragraph\">A new leave request has been submitted New.</p><br><p class=\"editor-paragraph\">Employee: @{triggerOutputs()?['body/cr6c4_employeename']}<br>Email: @{triggerOutputs()?['body/cr6c4_EmployeeEmail']}<br>Start Date: @{triggerOutputs()?['body/cr6c4_leavestartdate']}<br>End Date: @{triggerOutputs()?['body/cr6c4_leaveenddate']}<br>Reason: @{triggerOutputs()?['body/cr6c4_leavereason']}<br>Status: @{triggerOutputs()?['body/cr6c4_leavestatus']}</p><br>"
+              "emailMessage/To": "yashk@digi-prodigy.com",
+              "emailMessage/Subject": "test",
+              "emailMessage/Body": "<p>&lt;p class=\"editor-paragraph\"&gt;A new leave request has been submitted New.&lt;/p&gt;&lt;br&gt;&lt;p class=\"editor-paragraph\"&gt;Employee: @{triggerOutputs()?['body/cr6c4_employeename']}&lt;br&gt;Email: @{triggerOutputs()?['body/cr6c4_EmployeeEmail']}&lt;br&gt;Start Date: @{triggerOutputs()?['body/cr6c4_leavestartdate']}&lt;br&gt;End Date: @{triggerOutputs()?['body/cr6c4_leaveenddate']}&lt;br&gt;Reason: @{triggerOutputs()?['body/cr6c4_leavereason']}&lt;br&gt;Status: @{triggerOutputs()?['body/cr6c4_leavestatus']}&lt;/p&gt;&lt;br&gt;</p>"
             },
             "authentication": "@parameters('$authentication')"
           }
         }
-      },
-      "outputs": {}
+      }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

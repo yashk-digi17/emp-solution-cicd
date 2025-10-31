@@ -29,6 +29,22 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="first_sharedgmail_a17cd">
+      <connectionreferencedisplayname>Gmail EmpLeave-a17cd</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_gmail</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="first_sharedgmail_de176">
+      <connectionreferencedisplayname>Gmail EmpLeave-de176</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_gmail</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <promptingbehavior>0</promptingbehavior>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="new_sharedgmail_b75f8">
       <connectionreferencedisplayname>Gmail</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_gmail</connectorid>

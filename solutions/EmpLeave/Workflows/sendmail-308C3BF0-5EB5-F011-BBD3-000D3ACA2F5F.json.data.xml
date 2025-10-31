@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{ea8ab288-58fa-b5d2-2508-44cb8c4781fc}" Name="Send Mail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/SendMail-EA8AB288-58FA-B5D2-2508-44CB8C4781FC.json</JsonFileName>
+<Workflow WorkflowId="{308c3bf0-5eb5-f011-bbd3-000d3aca2f5f}" Name="send mail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/sendmail-308C3BF0-5EB5-F011-BBD3-000D3ACA2F5F.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -11,18 +11,16 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>1.0</IntroducedVersion>
+  <IntroducedVersion>1.0.0.9</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
-  <RendererObjectTypeCode>0</RendererObjectTypeCode>
-  <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <ModernFlowType>0</ModernFlowType>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Send Mail" />
+    <LocalizedName languagecode="1033" description="send mail" />
   </LocalizedNames>
 </Workflow>
