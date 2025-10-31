@@ -38,7 +38,7 @@ jobs:
           pac solution import \
             --path "$SOLUTION_FILE" \
             --force-overwrite \
-            --publish-changes true
+            --publish-changes true \
             --stage-and-upgrade
 
 
@@ -69,5 +69,5 @@ jobs:
           pac solution import \
             --path "$SOLUTION_FILE" \
             --force-overwrite \
-            --publish-changes true
+            --publish-changes true \
             --stage-and-upgrade
